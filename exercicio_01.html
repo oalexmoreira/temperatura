@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+
+    
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+           background-color: rgb(4, 67, 139);
+                 }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+       
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .resultado {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Conversor de Temperatura</h2>
+        <label for="celsius">Temperatura em Celsius:</label>
+
+        <input type="number" id="celsius" placeholder="Digite a temperatura em Celsius">
+
+        <button onclick="converterTemperatura()">Converter</button>
+
+        <div class="resultado" id="resultado"></div>
+        
+    </div>
+
+    <script>
+        function converterTemperatura() {
+            var celsius = parseFloat(document.getElementById("celsius").value);
+
+            if (isNaN(celsius)) {
+                alert("Por favor, insira um valor numérico válido para a temperatura em Celsius.");
+                return;
+            }
+
+            var fahrenheit = (celsius * 9/5) + 32;
+            var kelvin = celsius + 273.15;
+
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `${celsius.toFixed(2)} graus Celsius correspondem a: <br>
+                                     ${fahrenheit.toFixed(2)} graus Fahrenheit <br>
+                                     ${kelvin.toFixed(2)} Kelvin`;
+        }
+    </script>
+</body>
+</html>
